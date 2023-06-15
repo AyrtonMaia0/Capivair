@@ -1,0 +1,288 @@
+import { StatusBar } from "expo-status-bar";
+import React, { useState, useEffect } from "react";
+import { funcaoDeleteSensors, funcaoUpdateSensors } from "../CRUD/crudSensores";
+import {
+  View,
+  Text,
+  Modal,
+  StyleSheet,
+  TouchableOpacity,
+  TextInput,
+} from "react-native";
+
+//ele precisa de uma props pra monitorar a abertura
+
+export default function CustomModal({ isOpen, sensor }) {
+  //alterei os nomes
+  const [visivel, setVisivel] = useState(false);
+  useEffect(() => {
+    setVisivel(isOpen);
+  }, [isOpen]);
+
+  const [varSensor, setVarSensor] = useState({});
+  useEffect(() => {
+    setVarSensor(sensor);
+  }, [sensor]);
+
+
+
+
+
+  return (
+    <View>
+      <Modal
+        animationType="slide"
+        transparent={true}
+        visible={visivel}
+        style={{
+          flex: 1,
+          margin: 0,
+          justifyContent: "center",
+          alignItems: "center",
+        }}>
+
+        <View style={styles.modal}>
+          <View style={styles.modalView}>
+            
+            {/* START Box internal the Modal */}
+            <View>
+
+              {/* Button to CLOSE MODAL */}
+              <View style={{ alignItems: "flex-end" }}>
+
+              {/* START BUTTON */}
+                <TouchableOpacity
+                  onPress={() => {
+                    setVisivel(false);
+                    setVarSensor({});
+                  }}
+                  style={styles.botao}>
+                  <Text
+                    style={{
+                      fontSize: 15,
+                      color: "#878787",
+                      textAlign: "center",
+                    }}>
+                    X
+                  </Text>
+                </TouchableOpacity>
+              {/* END BUTTON */}
+
+              </View>
+
+              {/* 2 First Box */}
+              <View
+                style={{
+                  flexDirection: "row",
+                  marginTop: "5%",
+                  height: "15%",
+                }}>
+
+                {/* Input Nome */}
+                <TextInput
+                  placeholder="Nome"
+                  onChangeText={(nome) => setVarSensor(...varSensor, nome)}
+                  value={varSensor ? varSensor.nome : null}
+                  placeholderTextColor="#878787"
+                  style={{
+                    width: "57%",
+                    backgroundColor: "#f3f3f3",
+                    borderRadius: 2,
+                    paddingLeft: 9,
+                    borderWidth: 1,
+                    borderColor: "#D9D9D9",
+                  }}
+                />
+
+                {/* Input Status */}
+                <TextInput
+                  placeholder="Status"
+                  onChangeText={(status) => setVarSensor(...varSensor, status)}
+                  value={varSensor ? varSensor.status : null}
+                  placeholderTextColor="#878787"
+                  style={{
+                    width: "40%",
+                    backgroundColor: "#f3f3f3",
+                    borderRadius: 2,
+                    paddingLeft: 9,
+                    marginLeft: 10,
+                    borderWidth: 1,
+                    borderColor: "#D9D9D9",
+                  }}
+                />
+              </View>
+
+              {/* Input Tipo */}
+              <TextInput
+                placeholder="Tipo"
+                onChangeText={(tipo) => setVarSensor(...varSensor, tipo)}
+                value={varSensor ? varSensor.tipo : null}
+                placeholderTextColor="#878787"
+                style={{
+                  height: "15%",
+                  width: "100%",
+                  backgroundColor: "#f3f3f3",
+                  borderRadius: 2,
+                  paddingLeft: 9,
+                  marginTop: "5%",
+                  borderWidth: 1,
+                  borderColor: "#D9D9D9",
+                }}
+              />
+
+              {/* Input Area */}
+              <TextInput
+                placeholder="Área"
+                onChangeText={(area) => setVarSensor(...varSensor, area)}
+                value={varSensor ? varSensor.area : null}
+                placeholderTextColor="#878787"
+                style={{
+                  height: "15%",
+                  width: "100%",
+                  backgroundColor: "#f3f3f3",
+                  borderRadius: 2,
+                  paddingLeft: 9,
+                  marginTop: "5%",
+                  borderWidth: 1,
+                  borderColor: "#D9D9D9",
+                }}
+              />
+
+              {/* Last Boxes */}
+              <View
+                style={{
+                  flexDirection: "row",
+                  marginTop: "5%",
+                  height: "15%",
+                }}>
+
+                {/* Ipnut Codigo */}
+                <TextInput
+                  placeholder="ID"
+                  onChangeText={(id) => setVarSensor(...varSensor, id)}
+                  value={varSensor ? varSensor.id : null}
+                  placeholderTextColor="#878787"
+                  style={{
+                    width: "51%",
+                    backgroundColor: "#f3f3f3",
+                    borderRadius: 2,
+                    paddingLeft: 9,
+                    borderWidth: 1,
+                    borderColor: "#D9D9D9",
+                  }}
+                />
+
+                {/* Input coordenada X */}
+                <TextInput
+                  placeholder="X"
+                  onChangeText={(x) => setVarSensor(...varSensor, x)}
+                  value={varSensor ? varSensor.x/* .toString() */ : null}
+                  placeholderTextColor="#878787"
+                  style={{
+                    width: "20%",
+                    backgroundColor: "#f3f3f3",
+                    borderRadius: 2,
+                    paddingLeft: 9,
+                    borderWidth: 1,
+                    borderColor: "#D9D9D9",
+                    marginLeft: "6%",
+                  }}
+                />
+
+                {/* Input coordenada Y */}
+                <TextInput
+                  placeholder="Y"
+                  onChangeText={(y) => setVarSensor(...varSensor, y)}
+                  value={varSensor ? varSensor.y/* .toString() */ : null}
+                  placeholderTextColor="#878787"
+                  style={{
+                    width: "20%",
+                    backgroundColor: "#f3f3f3",
+                    borderRadius: 2,
+                    paddingLeft: 9,
+                    marginLeft: 10,
+                    borderWidth: 1,
+                    borderColor: "#D9D9D9",
+                  }}
+                />
+              </View>
+
+              <View
+                style={{
+                  flexDirection: "row",
+                  marginTop: "10%",
+                  justifyContent: "space-evenly",
+                }}>
+
+                {/* Button DELETE */}
+                <TouchableOpacity style={styles.botaoExc} onPress={() => funcaoDeleteSensors(varSensor)}>
+                  <Text style={{ textAlign: "center", color: "white" }}>
+                    EXCLUIR
+                  </Text>
+                </TouchableOpacity>
+
+                {/* Button UPDATE */}
+                <TouchableOpacity style={styles.botaoSal} onPress={() => funcaoUpdateSensors(varSensor)}>
+                  <Text style={{ textAlign: "center", color: "white" }}>
+                    SALVAR
+                  </Text>
+                </TouchableOpacity>
+
+              </View>
+
+            </View>
+            {/* END Box internal the Modal */}
+            
+          </View>
+        </View>
+
+      </Modal>
+    </View>
+  );
+}
+
+const styles = StyleSheet.create({
+  modal: {
+    justifyContent: "center",
+    alignContent: "center",
+    flex: 1,
+    marginTop: 22,
+  },
+  botao: {
+    borderRadius: 2,
+    width: "12%",
+    borderWidth: 1,
+    borderColor: "#D9D9D9",
+    paddingTop: 2,
+    paddingBottom: 2,
+  },
+  modalView: {
+    margin: 20,
+    backgroundColor: "white",
+    borderRadius: 15,
+    padding: 10,
+    height: "65%",
+    shadowColor: "#000",
+    shadowOffset: {
+      width: 0,
+      height: 2,
+    },
+    shadowOpacity: 0.25,
+    shadowRadius: 4,
+    elevation: 5,
+  },
+  botaoExc: {
+    backgroundColor: "#f4400c",
+    height: 35,
+    width: 100,
+    padding: 5,
+    borderRadius: 5,
+  },
+  botaoSal: {
+    backgroundColor: "#225FD7",
+    height: 35,
+    width: 100,
+    padding: 5,
+    borderRadius: 5,
+  },
+});

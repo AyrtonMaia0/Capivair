@@ -3,7 +3,7 @@ import { Header } from '../../components/header';
 import styles from '../../../style';
 
 
-export default function Monitoramento() {
+export default function Graficos() {
     return (
         <View style ={styles.tela}>
             <Header/>

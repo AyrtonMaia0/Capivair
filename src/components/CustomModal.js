@@ -10,10 +10,10 @@ import {
   TextInput,
 } from "react-native";
 
-//ele precisa de uma props pra monitorar a abertura
+export default function CustomModal({ isOpen, sensor, onModalClose }) {
 
-export default function CustomModal({ isOpen, sensor }) {
-  //alterei os nomes
+  isOpen ? console.log("tudo") : console.log("nada");
+
   const [visivel, setVisivel] = useState(false);
   useEffect(() => {
     setVisivel(isOpen);
@@ -25,6 +25,12 @@ export default function CustomModal({ isOpen, sensor }) {
   }, [sensor]);
 
 
+
+  const closeModal = () => {
+    setVisivel(false);
+    setVarSensor({});
+    onModalClose(); // Chama a função de recarregamento dos sensores
+  };
 
 
 
@@ -39,35 +45,30 @@ export default function CustomModal({ isOpen, sensor }) {
           margin: 0,
           justifyContent: "center",
           alignItems: "center",
-        }}>
-
+        }}
+      >
         <View style={styles.modal}>
           <View style={styles.modalView}>
-            
             {/* START Box internal the Modal */}
             <View>
-
               {/* Button to CLOSE MODAL */}
               <View style={{ alignItems: "flex-end" }}>
-
-              {/* START BUTTON */}
+                {/* START BUTTON */}
                 <TouchableOpacity
-                  onPress={() => {
-                    setVisivel(false);
-                    setVarSensor({});
-                  }}
-                  style={styles.botao}>
+                  onPress={closeModal}
+                  style={styles.botao}
+                >
                   <Text
                     style={{
                       fontSize: 15,
                       color: "#878787",
                       textAlign: "center",
-                    }}>
+                    }}
+                  >
                     X
                   </Text>
                 </TouchableOpacity>
-              {/* END BUTTON */}
-
+                {/* END BUTTON */}
               </View>
 
               {/* 2 First Box */}
@@ -76,12 +77,12 @@ export default function CustomModal({ isOpen, sensor }) {
                   flexDirection: "row",
                   marginTop: "5%",
                   height: "15%",
-                }}>
-
+                }}
+              >
                 {/* Input Nome */}
                 <TextInput
                   placeholder="Nome"
-                  onChangeText={(nome) => setVarSensor(...varSensor, nome)}
+                  onChangeText={(nome) => setVarSensor({ ...varSensor, nome })}
                   value={varSensor ? varSensor.nome : null}
                   placeholderTextColor="#878787"
                   style={{
@@ -93,11 +94,12 @@ export default function CustomModal({ isOpen, sensor }) {
                     borderColor: "#D9D9D9",
                   }}
                 />
-
                 {/* Input Status */}
                 <TextInput
                   placeholder="Status"
-                  onChangeText={(status) => setVarSensor(...varSensor, status)}
+                  onChangeText={(status) =>
+                    setVarSensor({ ...varSensor, status })
+                  }
                   value={varSensor ? varSensor.status : null}
                   placeholderTextColor="#878787"
                   style={{
@@ -115,7 +117,7 @@ export default function CustomModal({ isOpen, sensor }) {
               {/* Input Tipo */}
               <TextInput
                 placeholder="Tipo"
-                onChangeText={(tipo) => setVarSensor(...varSensor, tipo)}
+                onChangeText={(tipo) => setVarSensor({...varSensor, tipo})}
                 value={varSensor ? varSensor.tipo : null}
                 placeholderTextColor="#878787"
                 style={{
@@ -133,7 +135,7 @@ export default function CustomModal({ isOpen, sensor }) {
               {/* Input Area */}
               <TextInput
                 placeholder="Área"
-                onChangeText={(area) => setVarSensor(...varSensor, area)}
+                onChangeText={(area) => setVarSensor({...varSensor, area})}
                 value={varSensor ? varSensor.area : null}
                 placeholderTextColor="#878787"
                 style={{
@@ -148,6 +150,7 @@ export default function CustomModal({ isOpen, sensor }) {
                 }}
               />
 
+
               {/* Last Boxes */}
               <View
                 style={{
@@ -159,7 +162,7 @@ export default function CustomModal({ isOpen, sensor }) {
                 {/* Ipnut Codigo */}
                 <TextInput
                   placeholder="ID"
-                  onChangeText={(id) => setVarSensor(...varSensor, id)}
+                  onChangeText={(id) => setVarSensor({...varSensor, id})}
                   value={varSensor ? varSensor.id : null}
                   placeholderTextColor="#878787"
                   style={{
@@ -175,9 +178,13 @@ export default function CustomModal({ isOpen, sensor }) {
                 {/* Input coordenada X */}
                 <TextInput
                   placeholder="X"
-                  onChangeText={(x) => setVarSensor(...varSensor, x)}
-                  value={varSensor ? varSensor.x/* .toString() */ : null}
+                  onChangeText={(x) => {
+                    x = parseFloat(x)
+                    setVarSensor({...varSensor, x})
+                  }}
+                  value={varSensor ? String(varSensor.x) : null}
                   placeholderTextColor="#878787"
+                  keyboardType='numeric'
                   style={{
                     width: "20%",
                     backgroundColor: "#f3f3f3",
@@ -192,9 +199,13 @@ export default function CustomModal({ isOpen, sensor }) {
                 {/* Input coordenada Y */}
                 <TextInput
                   placeholder="Y"
-                  onChangeText={(y) => setVarSensor(...varSensor, y)}
-                  value={varSensor ? varSensor.y/* .toString() */ : null}
+                  onChangeText={(y) => {
+                    y = parseFloat(y)
+                    setVarSensor({...varSensor, y})
+                  }}
+                  value={varSensor ? String(varSensor.y) : null}
                   placeholderTextColor="#878787"
+                  keyboardType='numeric'
                   style={{
                     width: "20%",
                     backgroundColor: "#f3f3f3",
@@ -207,35 +218,39 @@ export default function CustomModal({ isOpen, sensor }) {
                 />
               </View>
 
+
+
               <View
                 style={{
                   flexDirection: "row",
                   marginTop: "10%",
                   justifyContent: "space-evenly",
-                }}>
-
+                }}
+              >
                 {/* Button DELETE */}
-                <TouchableOpacity style={styles.botaoExc} onPress={() => funcaoDeleteSensors(varSensor)}>
+                <TouchableOpacity
+                  style={styles.botaoExc}
+                  onPress={() => funcaoDeleteSensors(varSensor)}
+                >
                   <Text style={{ textAlign: "center", color: "white" }}>
                     EXCLUIR
                   </Text>
                 </TouchableOpacity>
 
                 {/* Button UPDATE */}
-                <TouchableOpacity style={styles.botaoSal} onPress={() => funcaoUpdateSensors(varSensor)}>
+                <TouchableOpacity
+                  style={styles.botaoSal}
+                  onPress={() => funcaoUpdateSensors(varSensor)}
+                >
                   <Text style={{ textAlign: "center", color: "white" }}>
                     SALVAR
                   </Text>
                 </TouchableOpacity>
-
               </View>
-
             </View>
             {/* END Box internal the Modal */}
-            
           </View>
         </View>
-
       </Modal>
     </View>
   );

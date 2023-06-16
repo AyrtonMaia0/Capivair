@@ -2,6 +2,20 @@ import axios from "axios";
 import api from "../../services/api";
 
 
+
+//----CREATE
+/* 
+export async function funcaoCreateSensors(){
+    try{
+        console.log("hey");
+    } catch (error) {
+        console.log(error);
+    }
+}
+*/
+
+
+
 //----READ
 export async function funcaoReadSensors(){
     try{
@@ -17,7 +31,7 @@ export async function funcaoReadSensors(){
 export async function funcaoDeleteSensors(varSensor){
     try{
         console.log(varSensor._id);
-        const response = await axios.delete(`http://localhost:8080/https://back-people.onrender.com/sensor/${varSensor._id}`);
+        const response = await axios.delete(`https://back-people.onrender.com/sensor/${varSensor._id}`);
         console.log(response);
     } catch (error) {
         console.log(error);
@@ -29,20 +43,25 @@ export async function funcaoDeleteSensors(varSensor){
 //----UPDATE
 export async function funcaoUpdateSensors(varSensor) {
     try{
-        console.log(varSensor.nome);
+        const dados = {
+            nome: varSensor.nome,
+            status: varSensor.status,
+            tipo: varSensor.tipo,
+            area: varSensor.area,
+            id: varSensor.id,
+            x: varSensor.x,
+            y: varSensor.y,
+        };
+
+        console.log(dados);
+
+        const url = `http://localhost:8080/https://back-people.onrender.com/sensor/${varSensor._id}`;
+        const response = await axios.patch(url, dados);
+        console.log(response);
+        
     } catch (error) {
         console.log(error);
     }
 }
 
 
-//----CREATE
-/* 
-export async function funcaoCreateSensors(){
-    try{
-        console.log("hey");
-    } catch (error) {
-        console.log(error);
-    }
-}
-*/

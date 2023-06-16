@@ -6,16 +6,30 @@ import { Button, ListItem } from "@rneui/base";
 import { Icon } from "@rneui/base";
 import CustomModal from "../../components/CustomModal";
 
-import {funcaoReadSensors} from '../../CRUD/crudSensores';
+import { funcaoReadSensors } from '../../CRUD/crudSensores';
 
 
 export default function Home() {
   const [visibleModal, setVisibleModal] = useState(false);
   const [sensorModal, setSensorModal] = useState();
+  const [sensores, setSensores] = useState([]);
 
   useEffect(() => {
     getData();
   }, []);
+
+  useEffect(() => {
+    getData();
+  }, [visibleModal]); // Atualizar os sensores quando o modal for aberto ou fechado
+
+
+
+  const reloadSensores = async () => {
+    const sensor = await funcaoReadSensors();
+    setSensores(sensor);
+  };
+
+
 
   const renderSensor = ({ item: sensor }) => {
     return (
@@ -56,40 +70,13 @@ export default function Home() {
     );
   };
 
-
-
-
-
-  //AYRTON -> chama funcao de outro arquivo para LER os sensores
-  
-  const [sensores, setSensores] = useState();
   const getData = async () => {
     const sensor = await funcaoReadSensors();
     setSensores(sensor);
-    return sensor;
   }
 
-  // console.log(sensores);
-/*   const getData = async () => {
-    var sensors = [];
-    try {
-      const response = await api.get("/sensor");
-
-      sensors = response.data.sensor;
-
-      setSensores(sensors);
-    } catch (error) {
-      console.error(error);
-    }
-    return sensors;
-  }; */
-
-
-
-
-
   return (
-    <View>
+    <View style={{ flex: 1 }}>
       <StatusBar style="auto" backgroundColor="#225FD7" />
       <Header />
       <FlatList
@@ -97,8 +84,7 @@ export default function Home() {
         keyExtractor={(i) => `${i.id}`}
         renderItem={renderSensor}
       />
-      <CustomModal isOpen={visibleModal} sensor={sensorModal} />
+      <CustomModal isOpen={visibleModal} sensor={sensorModal} onModalClose={reloadSensores} />
     </View>
   );
 }
-

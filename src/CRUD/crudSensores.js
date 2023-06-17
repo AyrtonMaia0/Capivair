@@ -55,7 +55,7 @@ export async function funcaoUpdateSensors(varSensor) {
 
         console.log(dados);
 
-        const url = `http://localhost:8080/https://back-people.onrender.com/sensor/${varSensor._id}`;
+        const url = `https://back-people.onrender.com/sensor/${varSensor._id}`;
         const response = await axios.patch(url, dados);
         console.log(response);
         

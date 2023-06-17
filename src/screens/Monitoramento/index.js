@@ -2,16 +2,24 @@ import React, { useState } from "react";
 import { Header } from "../../components/header";
 import stylss from "../../../style";
 import axios from "axios";
-import { 
+import {
   StyleSheet,
-  View, 
-  Image, 
-  TouchableOpacity, 
-  Text
+  View,
+  Image,
+  TouchableOpacity,
+  TextInput,
+  Text,
 } from "react-native";
 
-
 export default function Monitoramento() {
+  const [sensorNome, setSensorNome] = useState("");
+  const [sensorStatus, setSensorStauts] = useState("");
+  const [sensorTipo, setSensorTipo] = useState("");
+  const [sensorId, setSensorId] = useState("");
+  //const [sensorX, setSensorX] = useState("");
+  //const [sensorY, setSensorY] = useState("");
+
+  /* START -> X e Y */
   const [coordinates, setCoordinates] = useState({ x: 0, y: 0 });
 
   const handleImagePress = (event) => {
@@ -24,26 +32,124 @@ export default function Monitoramento() {
     // Atualiza as coordenadas
     setCoordinates({ x, y });
     console.log("Puro: X[" + x + "] | Y[" + y + "]");
-    console.log("Tratado: X[" + (x - 120).toFixed(2) + "] | Y[" + (y - 210).toFixed(2) + "]" );
+    console.log(
+      "Tratado: X[" +
+        (x - 120).toFixed(2) +
+        "] | Y[" +
+        (y - 210).toFixed(2) +
+        "]"
+    );
+    enviar(x, y);
 
-    const dados = { nome: "google", id: "codigo", x: x, y: y, status: "morri" };
+  };
+  /* END -> X e Y */
+
+  function enviar(x, y) {
+    const dados = {
+      nome: sensorNome,
+      id: sensorId,
+      x: x,
+      y: y,
+      status: sensorStatus,
+      tipo: sensorTipo,
+    };
     const url = "https://back-people.onrender.com/sensor";
     const response = axios.post(url, dados);
     console.log(response);
-    console.log(dados.x);
-  };
+    console.log(dados);
+  }
 
   return (
     <View style={stylss.tela}>
       <Header />
-      <Text>Ola</Text>
+      {/* <Text>Ola</Text> */}
 
       <View style={styles.container}>
-        <TouchableOpacity onPress={handleImagePress}>
+        {/* Input Nome */}
+        <TextInput
+          placeholder="Nome"
+          /* onChangeText={(nome) => setVarSensor({ ...varSensor, nome })} */
+          //value={varSensor ? varSensor.nome : null}
+          value={sensorNome}
+          onChangeText={(text) => setSensorNome(text)}
+          placeholderTextColor="#878787"
+          style={{
+            width: "57%",
+            backgroundColor: "#f3f3f3",
+            borderRadius: 2,
+            paddingLeft: 9,
+            margin: 2,
+            borderWidth: 1,
+            borderColor: "#D9D9D9",
+          }}
+        />
+
+        {/* Input Status */}
+        <TextInput
+          placeholder="Status"
+          /* onChangeText={(nome) => setVarSensor({ ...varSensor, nome })} */
+          //value={varSensor ? varSensor.nome : null}
+          value={sensorStatus}
+          onChangeText={(text) => setSensorStauts(text)}
+          placeholderTextColor="#878787"
+          style={{
+            width: "57%",
+            backgroundColor: "#f3f3f3",
+            borderRadius: 2,
+            paddingLeft: 9,
+            margin: 2,
+            borderWidth: 1,
+            borderColor: "#D9D9D9",
+          }}
+        />
+
+        {/* Input Tipo */}
+        <TextInput
+          placeholder="Tipo"
+          /* onChangeText={(nome) => setVarSensor({ ...varSensor, nome })} */
+          //value={varSensor ? varSensor.nome : null}
+          value={sensorTipo}
+          onChangeText={(text) => setSensorTipo(text)}
+          placeholderTextColor="#878787"
+          style={{
+            width: "57%",
+            backgroundColor: "#f3f3f3",
+            borderRadius: 2,
+            paddingLeft: 9,
+            margin: 2,
+            borderWidth: 1,
+            borderColor: "#D9D9D9",
+          }}
+        />
+
+        {/* Input Codigo */}
+        <TextInput
+          placeholder="Código"
+          /* onChangeText={(nome) => setVarSensor({ ...varSensor, nome })} */
+          //value={varSensor ? varSensor.nome : null}
+          value={sensorId}
+          onChangeText={(text) => setSensorId(text)}
+          placeholderTextColor="#878787"
+          style={{
+            width: "57%",
+            backgroundColor: "#f3f3f3",
+            borderRadius: 2,
+            paddingLeft: 9,
+            margin: 2,
+            borderWidth: 1,
+            borderColor: "#D9D9D9",
+          }}
+        />
+
+        {/* START BUTTON IMAGE */}
+        <TouchableOpacity
+          onPress={handleImagePress} /* onPress={() => handleImagePress()} */
+        >
           <Image
             source={require("../../../assets/Map-Planta-0.5x.png")}
             style={styles.image}
           />
+
           {coordinates.x !== 0 && coordinates.y !== 0 && (
             <Image
               source={require("../../../assets/pin-loc-red.png")}
@@ -57,6 +163,7 @@ export default function Monitoramento() {
             />
           )}
         </TouchableOpacity>
+        {/* END BUTTON IMAGE */}
       </View>
     </View>
   );

@@ -16,8 +16,7 @@ export default function Monitoramento() {
   const [sensorStatus, setSensorStauts] = useState("");
   const [sensorTipo, setSensorTipo] = useState("");
   const [sensorId, setSensorId] = useState("");
-  //const [sensorX, setSensorX] = useState("");
-  //const [sensorY, setSensorY] = useState("");
+  const [sensorArea, setSensorArea] = useState("");
 
   /* START -> X e Y */
   const [coordinates, setCoordinates] = useState({ x: 0, y: 0 });
@@ -52,6 +51,7 @@ export default function Monitoramento() {
       y: y,
       status: sensorStatus,
       tipo: sensorTipo,
+      area: sensorArea
     };
     const url = "https://back-people.onrender.com/sensor";
     const response = axios.post(url, dados);
@@ -140,6 +140,26 @@ export default function Monitoramento() {
             borderColor: "#D9D9D9",
           }}
         />
+
+        {/* Input Área */}
+        <TextInput
+          placeholder="Área"
+          /* onChangeText={(nome) => setVarSensor({ ...varSensor, nome })} */
+          //value={varSensor ? varSensor.nome : null}
+          value={sensorArea}
+          onChangeText={(text) => setSensorArea(text)}
+          placeholderTextColor="#878787"
+          style={{
+            width: "57%",
+            backgroundColor: "#f3f3f3",
+            borderRadius: 2,
+            paddingLeft: 9,
+            margin: 2,
+            borderWidth: 1,
+            borderColor: "#D9D9D9",
+          }}
+        />
+        
 
         {/* START BUTTON IMAGE */}
         <TouchableOpacity

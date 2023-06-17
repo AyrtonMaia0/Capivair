@@ -47,10 +47,13 @@ export default function CustomModal({ isOpen, sensor, onModalClose }) {
           alignItems: "center",
         }}
       >
+
         <View style={styles.modal}>
           <View style={styles.modalView}>
+
             {/* START Box internal the Modal */}
             <View>
+
               {/* Button to CLOSE MODAL */}
               <View style={{ alignItems: "flex-end" }}>
                 {/* START BUTTON */}
@@ -114,44 +117,54 @@ export default function CustomModal({ isOpen, sensor, onModalClose }) {
                 />
               </View>
 
-              {/* Input Tipo */}
-              <TextInput
-                placeholder="Tipo"
-                onChangeText={(tipo) => setVarSensor({...varSensor, tipo})}
-                value={varSensor ? varSensor.tipo : null}
-                placeholderTextColor="#878787"
+
+
+              {/* 2 box -> Tipo, Area */}
+              <View
                 style={{
-                  height: "15%",
-                  width: "100%",
-                  backgroundColor: "#f3f3f3",
-                  borderRadius: 2,
-                  paddingLeft: 9,
+                  flexDirection: "row",
                   marginTop: "5%",
-                  borderWidth: 1,
-                  borderColor: "#D9D9D9",
-                }}
-              />
-
-              {/* Input Area */}
-              <TextInput
-                placeholder="Área"
-                onChangeText={(area) => setVarSensor({...varSensor, area})}
-                value={varSensor ? varSensor.area : null}
-                placeholderTextColor="#878787"
-                style={{
                   height: "15%",
-                  width: "100%",
-                  backgroundColor: "#f3f3f3",
-                  borderRadius: 2,
-                  paddingLeft: 9,
-                  marginTop: "5%",
-                  borderWidth: 1,
-                  borderColor: "#D9D9D9",
                 }}
-              />
+              >
+                {/* Input Tipo */}
+                <TextInput
+                  placeholder="Tipo"
+                  onChangeText={(tipo) => setVarSensor({...varSensor, tipo})}
+                  value={varSensor ? varSensor.tipo : null}
+                  placeholderTextColor="#878787"
+                  style={{
+                    height: "80%",
+                    width: "57%",
+                    backgroundColor: "#f3f3f3",
+                    borderRadius: 2,
+                    paddingLeft: 9,
+                    borderWidth: 1,
+                    borderColor: "#D9D9D9",
+                  }}
+                />
+
+                {/* Input Area */}
+                <TextInput
+                  placeholder="Área"
+                  onChangeText={(area) => setVarSensor({...varSensor, area})}
+                  value={varSensor ? varSensor.area : null}
+                  placeholderTextColor="#878787"
+                  style={{
+                    height: "80%",
+                    width: "40%",
+                    backgroundColor: "#f3f3f3",
+                    borderRadius: 2,
+                    paddingLeft: 9,
+                    marginLeft: 10,
+                    borderWidth: 1,
+                    borderColor: "#D9D9D9",
+                  }}
+                />
+              </View>
 
 
-              {/* Last Boxes */}
+              {/* 3 box -> Id, X, Y */}
               <View
                 style={{
                   flexDirection: "row",
@@ -219,7 +232,7 @@ export default function CustomModal({ isOpen, sensor, onModalClose }) {
               </View>
 
 
-
+              {/* START BUTTONS */}
               <View
                 style={{
                   flexDirection: "row",
@@ -247,10 +260,14 @@ export default function CustomModal({ isOpen, sensor, onModalClose }) {
                   </Text>
                 </TouchableOpacity>
               </View>
+              {/* END BUTTONS */}
+
             </View>
             {/* END Box internal the Modal */}
+
           </View>
         </View>
+
       </Modal>
     </View>
   );
@@ -276,7 +293,7 @@ const styles = StyleSheet.create({
     backgroundColor: "white",
     borderRadius: 15,
     padding: 10,
-    height: "65%",
+    height: "60%", //Tamanho do Modal
     shadowColor: "#000",
     shadowOffset: {
       width: 0,

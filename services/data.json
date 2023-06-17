@@ -1,0 +1,20 @@
+{
+  "type": "Fruits",
+  "example": [
+    {
+      "name": "banana"
+    },
+    {
+      "name": "apple"
+    },
+    {
+      "name": "orange"
+    },
+    {
+      "name": "mango"
+    },
+    {
+      "name": "grape"
+    }
+  ]
+}

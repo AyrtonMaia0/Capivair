@@ -1,4 +1,4 @@
-import { Header } from '../../components/header';
+import { Header } from "../../components/header";
 import { View, Text, StatusBar, FlatList } from "react-native";
 import api from "../../../services/api";
 import React, { useEffect, useState } from "react";
@@ -6,8 +6,7 @@ import { Button, ListItem } from "@rneui/base";
 import { Icon } from "@rneui/base";
 import CustomModal from "../../components/CustomModal";
 
-import { funcaoReadSensors } from '../../CRUD/crudSensores';
-
+import { funcaoReadSensors } from "../../CRUD/crudSensores";
 
 export default function Home() {
   const [visibleModal, setVisibleModal] = useState(false);
@@ -22,14 +21,10 @@ export default function Home() {
     getData();
   }, [visibleModal]); // Atualizar os sensores quando o modal for aberto ou fechado
 
-
-
   const reloadSensores = async () => {
     const sensor = await funcaoReadSensors();
     setSensores(sensor);
   };
-
-
 
   const renderSensor = ({ item: sensor }) => {
     return (
@@ -60,9 +55,7 @@ export default function Home() {
               {sensor.nome}
             </ListItem.Title>
 
-            <ListItem.Subtitle>
-              {sensor.tipo}
-            </ListItem.Subtitle>
+            <ListItem.Subtitle>{sensor.tipo}</ListItem.Subtitle>
           </ListItem.Content>
           <Text>{sensor.id}</Text>
         </ListItem>
@@ -73,7 +66,7 @@ export default function Home() {
   const getData = async () => {
     const sensor = await funcaoReadSensors();
     setSensores(sensor);
-  }
+  };
 
   return (
     <View style={{ flex: 1 }}>
@@ -84,7 +77,11 @@ export default function Home() {
         keyExtractor={(i) => `${i.id}`}
         renderItem={renderSensor}
       />
-      <CustomModal isOpen={visibleModal} sensor={sensorModal} onModalClose={reloadSensores} />
+      <CustomModal
+        isOpen={visibleModal}
+        sensor={sensorModal}
+        onModalClose={reloadSensores}
+      />
     </View>
   );
 }

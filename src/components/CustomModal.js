@@ -8,11 +8,11 @@ import {
   StyleSheet,
   TouchableOpacity,
   TextInput,
+  Alert,
 } from "react-native";
 
 export default function CustomModal({ isOpen, sensor, onModalClose }) {
-
-  isOpen ? console.log("tudo") : console.log("nada");
+  // isOpen ? console.log("tudo") : console.log("nada");
 
   const [visivel, setVisivel] = useState(false);
   useEffect(() => {
@@ -24,15 +24,11 @@ export default function CustomModal({ isOpen, sensor, onModalClose }) {
     setVarSensor(sensor);
   }, [sensor]);
 
-
-
   const closeModal = () => {
     setVisivel(false);
     setVarSensor({});
     onModalClose(); // Chama a função de recarregamento dos sensores
   };
-
-
 
   return (
     <View>
@@ -45,29 +41,21 @@ export default function CustomModal({ isOpen, sensor, onModalClose }) {
           margin: 0,
           justifyContent: "center",
           alignItems: "center",
-        }}
-      >
-
+        }}>
         <View style={styles.modal}>
           <View style={styles.modalView}>
-
             {/* START Box internal the Modal */}
             <View>
-
               {/* Button to CLOSE MODAL */}
               <View style={{ alignItems: "flex-end" }}>
                 {/* START BUTTON */}
-                <TouchableOpacity
-                  onPress={closeModal}
-                  style={styles.botao}
-                >
+                <TouchableOpacity onPress={closeModal} style={styles.botao}>
                   <Text
                     style={{
                       fontSize: 15,
                       color: "#878787",
                       textAlign: "center",
-                    }}
-                  >
+                    }}>
                     X
                   </Text>
                 </TouchableOpacity>
@@ -80,8 +68,7 @@ export default function CustomModal({ isOpen, sensor, onModalClose }) {
                   flexDirection: "row",
                   marginTop: "5%",
                   height: "15%",
-                }}
-              >
+                }}>
                 {/* Input Nome */}
                 <TextInput
                   placeholder="Nome"
@@ -117,20 +104,17 @@ export default function CustomModal({ isOpen, sensor, onModalClose }) {
                 />
               </View>
 
-
-
               {/* 2 box -> Tipo, Area */}
               <View
                 style={{
                   flexDirection: "row",
                   marginTop: "5%",
                   height: "15%",
-                }}
-              >
+                }}>
                 {/* Input Tipo */}
                 <TextInput
                   placeholder="Tipo"
-                  onChangeText={(tipo) => setVarSensor({...varSensor, tipo})}
+                  onChangeText={(tipo) => setVarSensor({ ...varSensor, tipo })}
                   value={varSensor ? varSensor.tipo : null}
                   placeholderTextColor="#878787"
                   style={{
@@ -147,7 +131,7 @@ export default function CustomModal({ isOpen, sensor, onModalClose }) {
                 {/* Input Area */}
                 <TextInput
                   placeholder="Área"
-                  onChangeText={(area) => setVarSensor({...varSensor, area})}
+                  onChangeText={(area) => setVarSensor({ ...varSensor, area })}
                   value={varSensor ? varSensor.area : null}
                   placeholderTextColor="#878787"
                   style={{
@@ -163,7 +147,6 @@ export default function CustomModal({ isOpen, sensor, onModalClose }) {
                 />
               </View>
 
-
               {/* 3 box -> Id, X, Y */}
               <View
                 style={{
@@ -171,11 +154,10 @@ export default function CustomModal({ isOpen, sensor, onModalClose }) {
                   marginTop: "5%",
                   height: "15%",
                 }}>
-
                 {/* Ipnut Codigo */}
                 <TextInput
                   placeholder="ID"
-                  onChangeText={(id) => setVarSensor({...varSensor, id})}
+                  onChangeText={(id) => setVarSensor({ ...varSensor, id })}
                   value={varSensor ? varSensor.id : null}
                   placeholderTextColor="#878787"
                   style={{
@@ -192,12 +174,12 @@ export default function CustomModal({ isOpen, sensor, onModalClose }) {
                 <TextInput
                   placeholder="X"
                   onChangeText={(x) => {
-                    x = parseFloat(x)
-                    setVarSensor({...varSensor, x})
+                    x = parseFloat(x);
+                    setVarSensor({ ...varSensor, x });
                   }}
                   value={varSensor ? String(varSensor.x) : null}
                   placeholderTextColor="#878787"
-                  keyboardType='numeric'
+                  keyboardType="numeric"
                   style={{
                     width: "20%",
                     backgroundColor: "#f3f3f3",
@@ -213,12 +195,12 @@ export default function CustomModal({ isOpen, sensor, onModalClose }) {
                 <TextInput
                   placeholder="Y"
                   onChangeText={(y) => {
-                    y = parseFloat(y)
-                    setVarSensor({...varSensor, y})
+                    y = parseFloat(y);
+                    setVarSensor({ ...varSensor, y });
                   }}
                   value={varSensor ? String(varSensor.y) : null}
                   placeholderTextColor="#878787"
-                  keyboardType='numeric'
+                  keyboardType="numeric"
                   style={{
                     width: "20%",
                     backgroundColor: "#f3f3f3",
@@ -231,20 +213,41 @@ export default function CustomModal({ isOpen, sensor, onModalClose }) {
                 />
               </View>
 
-
               {/* START BUTTONS */}
               <View
                 style={{
                   flexDirection: "row",
                   marginTop: "10%",
                   justifyContent: "space-evenly",
-                }}
-              >
+                }}>
                 {/* Button DELETE */}
                 <TouchableOpacity
                   style={styles.botaoExc}
-                  onPress={() => funcaoDeleteSensors(varSensor)}
-                >
+                  onPress={() => {
+                    Alert.alert(
+                      "Atenção",
+                      "Você realmente deseja excluir o sensor " +
+                        varSensor.id +
+                        "?",
+                      [
+                        {
+                          text: "Cancelar",
+                          onPress: () => {
+                            closeModal;
+                          },
+                          style: "cancel",
+                        },
+                        {
+                          text: "OK",
+                          onPress: () => {
+                            funcaoDeleteSensors(varSensor);
+                            closeModal();
+                          },
+                        },
+                      ],
+                      { cancelable: false }
+                    );
+                  }}>
                   <Text style={{ textAlign: "center", color: "white" }}>
                     EXCLUIR
                   </Text>
@@ -253,21 +256,17 @@ export default function CustomModal({ isOpen, sensor, onModalClose }) {
                 {/* Button UPDATE */}
                 <TouchableOpacity
                   style={styles.botaoSal}
-                  onPress={() => funcaoUpdateSensors(varSensor)}
-                >
+                  onPress={() => funcaoUpdateSensors(varSensor)}>
                   <Text style={{ textAlign: "center", color: "white" }}>
                     SALVAR
                   </Text>
                 </TouchableOpacity>
               </View>
               {/* END BUTTONS */}
-
             </View>
             {/* END Box internal the Modal */}
-
           </View>
         </View>
-
       </Modal>
     </View>
   );

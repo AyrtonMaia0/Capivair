@@ -12,6 +12,10 @@ import {
 } from "react-native";
 
 export default function Monitoramento() {
+  //Ajustes que serao passados no point location
+  const ajusteX = 150;
+  const ajusteY = 350;
+
   const [sensorNome, setSensorNome] = useState("");
   const [sensorStatus, setSensorStauts] = useState("");
   const [sensorTipo, setSensorTipo] = useState("");
@@ -166,18 +170,18 @@ export default function Monitoramento() {
           onPress={handleImagePress} /* onPress={() => handleImagePress()} */
         >
           <Image
-            source={require("../../../assets/Map-Planta-0.5x.png")}
+            source={require("../../../assets/planta_baixa_1.png")}
             style={styles.image}
           />
 
           {coordinates.x !== 0 && coordinates.y !== 0 && (
             <Image
-              source={require("../../../assets/pin-loc-red.png")}
+              source={require("../../../assets/pin-loc-blue.png")}
               style={[
                 styles.pinImage,
                 {
-                  left: coordinates.x - 120, //115 Ajuste do tamanho do ponto de localização
-                  top: coordinates.y - 210, //180 Ajuste do tamanho do ponto de localização
+                  left: coordinates.x - ajusteX, //115 Ajuste do tamanho do ponto de localização
+                  top: coordinates.y - ajusteY, //180 Ajuste do tamanho do ponto de localização
                 },
               ]}
             />
@@ -197,8 +201,8 @@ const styles = StyleSheet.create({
     justifyContent: "center",
   },
   image: {
-    width: 200,
-    height: 480,
+    width: 150,
+    height: 410,
   },
   pinImage: {
     position: "absolute",

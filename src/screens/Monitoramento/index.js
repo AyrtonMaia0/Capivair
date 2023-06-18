@@ -8,7 +8,6 @@ import {
   Image,
   TouchableOpacity,
   TextInput,
-  Text,
 } from "react-native";
 
 export default function Monitoramento() {
@@ -79,6 +78,7 @@ export default function Monitoramento() {
           placeholderTextColor="#878787"
           style={{
             width: "57%",
+            height: '30%',
             backgroundColor: "#f3f3f3",
             borderRadius: 2,
             paddingLeft: 9,

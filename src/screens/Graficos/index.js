@@ -3,8 +3,8 @@ import { Header } from "../../components/header";
 import styles from "../../../style";
 
 import DailyEmission from "../../components/Charts/DailyEmission";
-import Api_BarChart from "../../components/Charts/Api_BarChart";
 /* 
+import Api_BarChart from "../../components/Charts/Api_BarChart";
 import BarChart_ from "../../components/Charts/Models/_BarChart";
 import LineChart_ from "../../components/Charts/Models/_LineChart";
 import BezierLineChart_ from "../../components/Charts/Models/_BezierLineChart";
@@ -17,19 +17,17 @@ import ContributionGraph_ from '../../components/Charts/Models/_ContributionGrap
 
 export default function Graficos() {
   return (
-    <ScrollView style={styles.tela}>
+    <ScrollView>
       <Header />
-      <Text style={styles.tituloL}>Gráficos</Text>
-      
-      <DailyEmission />
-
-      <Api_BarChart />
-
-      {/* 
-      <LineChart_ />
-      <BezierLineChart_ />
-      <BarChart_ /> 
-      */}
+      <View style={styles.screen_dashboard}>
+        <Text style={styles.tituloL}>Gráficos</Text>
+        <DailyEmission />
+        {/* 
+        <LineChart_ />
+        <BezierLineChart_ />
+        <BarChart_ /> 
+        */}
+      </View>
     </ScrollView>
   );
 }

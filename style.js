@@ -84,6 +84,12 @@ const styles = StyleSheet.create({
     padding: 16,
     marginTop: 16,
   },
+  screen_dashboard: {
+    flex: 1,
+    width: "100%",
+    backgroundColor: "#D9D9D9",
+    alignItems: "center",
+  },
 });
 
 export default styles;

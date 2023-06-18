@@ -1,28 +1,56 @@
 //import React Native components
 import { Text, Dimensions } from "react-native";
+const screenWidth = Dimensions.get("window").width - 16;
 
 //import React Native chart Kit for different kind of Chart
 import { LineChart } from "react-native-chart-kit";
-/* import * as RNFS from 'react-native-fs'; */
 
 //import styles definitions
 import styles from "../../../style";
 
 export default (props) => {
+  dados_mockados = require("../../../services/dados.json");
+  // console.log(dados_mockados.emissao_diaria_correcao);
+  dadosDaEmissaoDiaria = dados_mockados.emissao_diaria_correcao;
+
+  let chartData = {};
+
+  dadosDaEmissaoDiaria.map((item) => {
+    chartData = item.readings.map((reading) => {
+      const timestamp = new Date(reading.timestamp);
+      const hour = timestamp.getHours();
+      const co2Level = reading.co2Level;
+
+      return { x: hour, y: co2Level };
+    });
+  });
+
+  const dataX = chartData.map((dado) => {
+    return dado.x;
+  });
+
+  const dataY = chartData.map((dado) => {
+    return dado.y;
+  });
+
+  const data = {
+    labels: dataX,
+    datasets: [
+      {
+        data: dataY,
+        color: (opacity = 1) => `rgba(134, 65, 244, ${opacity})`, // optional
+        strokeWidth: 2, // optional
+      },
+    ],
+    legend: ["Emissão diária"], // optional
+  };
+
   return (
     <>
       <Text style={styles.title}>Emissão Diária</Text>
       <LineChart
-        data={{
-          labels: ["Terça", "Quarta", "Quinta", "Sexta", "Segunda", "Terça"],
-          datasets: [
-            {
-              data: [20, 45, 28, 80, 99, 43],
-              strokeWidth: 2,
-            },
-          ],
-        }}
-        width={Dimensions.get("window").width - 16}
+        data={data}
+        width={screenWidth}
         height={220}
         chartConfig={{
           backgroundColor: "#1cc910",
@@ -39,6 +67,7 @@ export default (props) => {
           borderRadius: 16,
         }}
       />
+      <Text>{chartData.x}</Text>
     </>
   );
 };

@@ -15,7 +15,7 @@ export default function App() {
   return (
 
     <NavigationContainer>
-          <Drawer.Navigator initialRouteName="Gráficos"  drawerContent={props => <CustomDrawer {...props} />} screenOptions={{ headerShown: false,  drawerLabelStyle:  {marginLeft: -18, fontSize: 16, fontFamily: 'Roboto', padding: 10}, drawerActiveBackgroundColor: '#D8D8D8', drawerActiveTintColor: '#176EBB'}}>
+          <Drawer.Navigator initialRouteName="Gráficos"  drawerContent={props => <CustomDrawer {...props} />} screenOptions={{ headerShown: false,  drawerLabelStyle:  {marginLeft: -18, fontSize: 16, padding: 10}, drawerActiveBackgroundColor: '#D8D8D8', drawerActiveTintColor: '#176EBB'}}>
             <Drawer.Screen name="Home" component={Home} options={{
               drawerIcon: ({color}) => (
                 <Ionicons name="speedometer-outline" size={30} color={color} />

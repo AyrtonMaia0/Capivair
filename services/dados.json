@@ -63,21 +63,7 @@
       "linha7": 280
     }
   },
-
-  "emissao_diaria": {
-    "noveHoras": 7,
-    "dezHoras": 8,
-    "onzeHoras": 8,
-    "dozeHoras": 9,
-    "trezeHoras": 10,
-    "quatorzeHoras": 10.4,
-    "quinzeHoras": 11.5,
-    "dezesseisHoras": 12,
-    "dezesseteHoras": 10.7,
-    "dezoitoHoras": 9.4,
-    "dezenoveHoras": 9
-  },
-  "emissao_diaria_correcao": [
+  "emissao_diaria": [
     {
       "sensorId": "CAMCOMB01",
       "latitude": -8.05428,
@@ -124,5 +110,28 @@
     "dioxidoCarbono": 49,
     "dioxidoNitrogenio": 44,
     "ozonio": 24
-  }
+  },
+
+  "poluentes_correcao": [
+    {
+      "elemento": "Dióxido de Carbono",
+      "abreviacao": "CO₂",
+      "emissao": 55
+    },
+    {
+      "elemento": "Monóxido de Carbono",
+      "abreviacao": "CO",
+      "emissao": 49
+    },
+    {
+      "elemento": "Dióxido de Nitrogênio",
+      "abreviacao": "NO₂",
+      "emissao": 44
+    },
+    {
+      "elemento": "Ozônio",
+      "abreviacao": "O₃",
+      "emissao": 24
+    }
+  ]
 }

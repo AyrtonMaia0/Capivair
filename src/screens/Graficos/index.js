@@ -4,7 +4,6 @@ import styles from "../../../style";
 
 import DailyEmission from "../../components/Charts/DailyEmission";
 /* 
-import Api_BarChart from "../../components/Charts/Api_BarChart";
 import BarChart_ from "../../components/Charts/Models/_BarChart";
 import LineChart_ from "../../components/Charts/Models/_LineChart";
 import BezierLineChart_ from "../../components/Charts/Models/_BezierLineChart";

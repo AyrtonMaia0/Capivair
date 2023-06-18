@@ -10,8 +10,7 @@ import styles from "../../../style";
 
 export default (props) => {
   dados_mockados = require("../../../services/dados.json");
-  // console.log(dados_mockados.emissao_diaria_correcao);
-  dadosDaEmissaoDiaria = dados_mockados.emissao_diaria_correcao;
+  dadosDaEmissaoDiaria = dados_mockados.emissao_diaria;
 
   let chartData = {};
 
@@ -47,7 +46,9 @@ export default (props) => {
 
   return (
     <>
+      {/* Título da o componente */}
       <Text style={styles.title}>Emissão Diária</Text>
+      {/* Gráfico de Emissão diária */}
       <LineChart
         data={data}
         width={screenWidth}
@@ -59,15 +60,15 @@ export default (props) => {
           decimalPlaces: 2,
           color: (opacity = 1) => `rgba(0, 0, 0, ${opacity})`,
           style: {
-            borderRadius: 16,
+            borderRadius: 5,
           },
         }}
         style={{
           marginVertical: 8,
-          borderRadius: 16,
+          borderRadius: 5,
         }}
       />
-      <Text>{chartData.x}</Text>
+      {/* Gráfico de Emissão diária */}
     </>
   );
 };

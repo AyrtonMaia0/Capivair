@@ -1,7 +1,7 @@
 //import React Native components
 import { Text, Dimensions } from 'react-native';
 import { PieChart } from 'react-native-chart-kit';
-import styles from '../../../../style';
+import styles from '../../../style';
 const screenWidth = Dimensions.get("window").width - 16;
 
 export default function poluentes() {

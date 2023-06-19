@@ -18,6 +18,7 @@ export default (props) => {
     chartData = item.readings.map((reading) => {
       const timestamp = new Date(reading.timestamp);
       const hour = timestamp.getHours();
+      
       const co2Level = reading.co2Level;
 
       return { x: hour, y: co2Level };

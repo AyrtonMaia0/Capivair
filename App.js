@@ -13,7 +13,7 @@ export default function App() {
   return (
     <NavigationContainer>
       <Drawer.Navigator
-        initialRouteName="Gráficos"
+        initialRouteName="Home"
         drawerContent={(props) => <CustomDrawer {...props} />}
         screenOptions={{
           headerShown: false,

@@ -25,15 +25,6 @@ export default function semanal() {
   })
   console.log(data) */
 
-  /* const data = {
-  labels: ["January", "February", "March", "April", "May", "June"],
-  datasets: [
-    {
-      data: [20, 45, 28, 80, 99, 43]
-    }
-  ]
-}; */
-
 
   return (
     <>

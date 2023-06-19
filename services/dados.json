@@ -51,35 +51,42 @@
     ]
   },
 
-  "emissao_semanal": {
-    "Setor_A": {
-      "linha1": 15,
-      "linha2": 30,
-      "linha3": 55,
-      "linha4": 45,
-      "linha5": 70,
-      "linha6": 65,
-      "linha7": 85
-    },
-    "Setor_B": {
-      "linha1": 99,
-      "linha2": 135,
-      "linha3": 170,
-      "linha4": 130,
-      "linha5": 190,
-      "linha6": 180,
-      "linha7": 270
-    },
-    "Setor_C": {
-      "linha1": 150,
-      "linha2": 200,
-      "linha3": 250,
-      "linha4": 300,
-      "linha5": 240,
-      "linha6": 230,
-      "linha7": 280
+  "emissao_semanal": [
+    {
+      "sensorId": "CAMCOMB01",
+      "readings": [
+        {
+          "timestamp": "2023-06-18T08:00:00-03:00",
+          "co2Level": 317.06
+        },
+        {
+          "timestamp": "2023-06-19T09:00:00-03:00",
+          "co2Level": 315.2
+        },
+        {
+          "timestamp": "2023-06-20T10:00:00-03:00",
+          "co2Level": 322.8
+        },
+        {
+          "timestamp": "2023-06-21T11:00:00-03:00",
+          "co2Level": 318.9
+        },
+        {
+          "timestamp": "2023-06-22T12:00:00-03:00",
+          "co2Level": 310.3
+        },
+        {
+          "timestamp": "2023-06-23T13:00:00-03:00",
+          "co2Level": 314.7
+        },
+        {
+          "timestamp": "2023-06-24T13:00:00-03:00",
+          "co2Level": 325.9
+        }
+      ]
     }
-  },
+  ],
+  
   "emissao_diaria": [
     {
       "sensorId": "CAMCOMB01",

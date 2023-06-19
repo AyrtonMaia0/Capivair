@@ -26,16 +26,12 @@ export default (props) => {
     });
   });
 
-  const dataX = chartData.map((dado) => {
-    return dado.x;
-  });
-
   const dataY = chartData.map((dado) => {
     return dado.y;
   });
 
   const data = {
-    labels: dataX,
+    labels: ["1", "2", "3", "4", "5", "6"],
     datasets: [
       {
         data: dataY,

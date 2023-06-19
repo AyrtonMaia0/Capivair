@@ -7,21 +7,24 @@ import {
   View,
   Image,
   TouchableOpacity,
-  TextInput, Text
+  TextInput,
+  Text,
+  ScrollView,
+  KeyboardAvoidingView,
+  Platform,
 } from "react-native";
 
 export default function Monitoramento() {
-  //Ajustes que serao passados no point location
-  const ajusteX = 150;
-  const ajusteY = 350;
+  // Ajustes que serão passados no ponto de localização
+  const ajusteX = 145;
+  const ajusteY = 390;
 
   const [sensorNome, setSensorNome] = useState("");
-  const [sensorStatus, setSensorStauts] = useState("");
+  const [sensorStatus, setSensorStatus] = useState("");
   const [sensorTipo, setSensorTipo] = useState("");
   const [sensorId, setSensorId] = useState("");
   const [sensorArea, setSensorArea] = useState("");
 
-  /* START -> X e Y */
   const [coordinates, setCoordinates] = useState({ x: 0, y: 0 });
 
   const handleImagePress = (event) => {
@@ -42,9 +45,7 @@ export default function Monitoramento() {
         "]"
     );
     enviar(x, y);
-
   };
-  /* END -> X e Y */
 
   function enviar(x, y) {
     const dados = {
@@ -54,7 +55,7 @@ export default function Monitoramento() {
       y: y,
       status: sensorStatus,
       tipo: sensorTipo,
-      area: sensorArea
+      area: sensorArea,
     };
     const url = "https://back-people.onrender.com/sensor";
     const response = axios.post(url, dados);
@@ -63,117 +64,70 @@ export default function Monitoramento() {
   }
 
   return (
-    <View style={{flex: 1, width: "100%", backgroundColor: "#fff",}}>
+    <View style={{ flex: 1 }}>
       <Header />
-      <Text style={{fontSize: 25, textAlign: 'center', color: '#00256E', fontWeight: "700"}}>Cadastrar</Text>
+      <Text
+        style={{
+          fontSize: 25,
+          textAlign: "center",
+          color: "#00256E",
+          fontWeight: "700",
+        }}
+      >
+        Cadastrar
+      </Text>
 
-      <View style={styles.container}>
-
+      <ScrollView
+        contentContainerStyle={styles.container}
+        keyboardShouldPersistTaps="handled"
+      >
         {/* Input Nome */}
         <TextInput
           placeholder="Nome"
-          /* onChangeText={(nome) => setVarSensor({ ...varSensor, nome })} */
-          //value={varSensor ? varSensor.nome : null}
           value={sensorNome}
           onChangeText={(text) => setSensorNome(text)}
           placeholderTextColor="#878787"
-          style={{
-            width: "80%",
-            height: '5%',
-            backgroundColor: "#f3f3f3",
-            borderRadius: 2,
-            paddingLeft: 9,
-            margin: 2,
-            borderWidth: 1,
-            borderColor: "#D9D9D9",
-          }}
+          style={styles.input}
         />
 
         {/* Input Status */}
         <TextInput
           placeholder="Status"
-          /* onChangeText={(nome) => setVarSensor({ ...varSensor, nome })} */
-          //value={varSensor ? varSensor.nome : null}
           value={sensorStatus}
-          onChangeText={(text) => setSensorStauts(text)}
+          onChangeText={(text) => setSensorStatus(text)}
           placeholderTextColor="#878787"
-          style={{
-            width: "80%",
-            height: '5%',
-            backgroundColor: "#f3f3f3",
-            borderRadius: 2,
-            paddingLeft: 9,
-            margin: 2,
-            borderWidth: 1,
-            borderColor: "#D9D9D9",
-          }}
+          style={styles.input}
         />
 
         {/* Input Tipo */}
         <TextInput
           placeholder="Tipo"
-          /* onChangeText={(nome) => setVarSensor({ ...varSensor, nome })} */
-          //value={varSensor ? varSensor.nome : null}
           value={sensorTipo}
           onChangeText={(text) => setSensorTipo(text)}
           placeholderTextColor="#878787"
-          style={{
-            width: "80%",
-            height: '5%',
-            backgroundColor: "#f3f3f3",
-            borderRadius: 2,
-            paddingLeft: 9,
-            margin: 2,
-            borderWidth: 1,
-            borderColor: "#D9D9D9",
-          }}
+          style={styles.input}
         />
 
         {/* Input Codigo */}
         <TextInput
           placeholder="Código"
-          /* onChangeText={(nome) => setVarSensor({ ...varSensor, nome })} */
-          //value={varSensor ? varSensor.nome : null}
           value={sensorId}
           onChangeText={(text) => setSensorId(text)}
           placeholderTextColor="#878787"
-          style={{
-            width: "80%",
-            height: '5%',
-            backgroundColor: "#f3f3f3",
-            borderRadius: 2,
-            paddingLeft: 9,
-            margin: 2,
-            borderWidth: 1,
-            borderColor: "#D9D9D9",
-          }}
+          style={styles.input}
         />
 
         {/* Input Área */}
         <TextInput
           placeholder="Área"
-          /* onChangeText={(nome) => setVarSensor({ ...varSensor, nome })} */
-          //value={varSensor ? varSensor.nome : null}
           value={sensorArea}
           onChangeText={(text) => setSensorArea(text)}
           placeholderTextColor="#878787"
-          style={{
-            width: "80%",
-            height: '5%',
-            backgroundColor: "#f3f3f3",
-            borderRadius: 2,
-            paddingLeft: 9,
-            margin: 2,
-            borderWidth: 1,
-            borderColor: "#D9D9D9",
-          }}
+          style={styles.input}
         />
-        
 
         {/* START BUTTON IMAGE */}
-        <TouchableOpacity
-          onPress={handleImagePress} /* onPress={() => handleImagePress()} */
-        >
+        <TouchableOpacity onPress={handleImagePress}>
           <Image
             source={require("../../../assets/planta_baixa_1.png")}
             style={styles.image}
@@ -185,26 +139,37 @@ export default function Monitoramento() {
               style={[
                 styles.pinImage,
                 {
-                  left: coordinates.x - ajusteX, //115 Ajuste do tamanho do ponto de localização
-                  top: coordinates.y - ajusteY, //180 Ajuste do tamanho do ponto de localização
+                  left: coordinates.x - ajusteX,
+                  top: coordinates.y - ajusteY,
                 },
               ]}
             />
           )}
         </TouchableOpacity>
         {/* END BUTTON IMAGE */}
-      </View>
+      </ScrollView>
     </View>
   );
 }
 
 const styles = StyleSheet.create({
   container: {
-    flex: 1,
+    flexGrow: 1,
     backgroundColor: "#fff",
     alignItems: "center",
     justifyContent: "center",
-    width: '100%'
+    width: "100%",
+    paddingBottom: 20,
+  },
+  input: {
+    width: "70%",
+    height: 40,
+    backgroundColor: "#f3f3f3",
+    borderRadius: 2,
+    paddingLeft: 9,
+    margin: 2,
+    borderWidth: 1,
+    borderColor: "#D9D9D9",
   },
   image: {
     width: 150,

@@ -3,6 +3,8 @@ import { Header } from "../../components/header";
 import styles from "../../../style";
 
 import DailyEmission from "../../components/Charts/DailyEmission";
+import Poluentes from 'capivair/src/components/Charts/Models/Pollution';
+import Semanal from 'capivair/src/components/Charts/Models/Weekly';
 /* 
 import BarChart_ from "../../components/Charts/Models/_BarChart";
 import LineChart_ from "../../components/Charts/Models/_LineChart";
@@ -21,6 +23,8 @@ export default function Graficos() {
       <View style={styles.screen_dashboard}>
         <Text style={styles.tituloL}>Gráficos</Text>
         <DailyEmission />
+        <Poluentes/>
+        <Semanal/> 
         {/* 
         <LineChart_ />
         <BezierLineChart_ />

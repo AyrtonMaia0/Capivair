@@ -7,8 +7,7 @@ import {
   View,
   Image,
   TouchableOpacity,
-  TextInput,
-  Text,
+  TextInput, Text
 } from "react-native";
 
 export default function Monitoramento() {
@@ -64,11 +63,12 @@ export default function Monitoramento() {
   }
 
   return (
-    <View style={stylss.tela}>
+    <View style={{flex: 1, width: "100%", backgroundColor: "#fff",}}>
       <Header />
-      {/* <Text>Ola</Text> */}
+      <Text style={{fontSize: 25, textAlign: 'center', color: '#00256E', fontWeight: "700"}}>Cadastrar</Text>
 
       <View style={styles.container}>
+
         {/* Input Nome */}
         <TextInput
           placeholder="Nome"
@@ -78,7 +78,8 @@ export default function Monitoramento() {
           onChangeText={(text) => setSensorNome(text)}
           placeholderTextColor="#878787"
           style={{
-            width: "57%",
+            width: "80%",
+            height: '5%',
             backgroundColor: "#f3f3f3",
             borderRadius: 2,
             paddingLeft: 9,
@@ -97,7 +98,8 @@ export default function Monitoramento() {
           onChangeText={(text) => setSensorStauts(text)}
           placeholderTextColor="#878787"
           style={{
-            width: "57%",
+            width: "80%",
+            height: '5%',
             backgroundColor: "#f3f3f3",
             borderRadius: 2,
             paddingLeft: 9,
@@ -116,7 +118,8 @@ export default function Monitoramento() {
           onChangeText={(text) => setSensorTipo(text)}
           placeholderTextColor="#878787"
           style={{
-            width: "57%",
+            width: "80%",
+            height: '5%',
             backgroundColor: "#f3f3f3",
             borderRadius: 2,
             paddingLeft: 9,
@@ -135,7 +138,8 @@ export default function Monitoramento() {
           onChangeText={(text) => setSensorId(text)}
           placeholderTextColor="#878787"
           style={{
-            width: "57%",
+            width: "80%",
+            height: '5%',
             backgroundColor: "#f3f3f3",
             borderRadius: 2,
             paddingLeft: 9,
@@ -154,7 +158,8 @@ export default function Monitoramento() {
           onChangeText={(text) => setSensorArea(text)}
           placeholderTextColor="#878787"
           style={{
-            width: "57%",
+            width: "80%",
+            height: '5%',
             backgroundColor: "#f3f3f3",
             borderRadius: 2,
             paddingLeft: 9,
@@ -199,6 +204,7 @@ const styles = StyleSheet.create({
     backgroundColor: "#fff",
     alignItems: "center",
     justifyContent: "center",
+    width: '100%'
   },
   image: {
     width: 150,

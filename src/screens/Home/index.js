@@ -8,7 +8,7 @@ import CustomModal from "../../components/CustomModal";
 
 import { funcaoReadSensors } from "../../CRUD/crudSensores";
 
-export default function Home() {
+export default function Home({ navigation }) {
   const [visibleModal, setVisibleModal] = useState(false);
   const [sensorModal, setSensorModal] = useState();
   const [sensores, setSensores] = useState([]);
@@ -20,6 +20,14 @@ export default function Home() {
   useEffect(() => {
     getData();
   }, [visibleModal]); // Atualizar os sensores quando o modal for aberto ou fechado
+
+  useEffect(() => {
+    const unsubscribe = navigation.addListener('focus', () => {
+      getData();
+    });
+
+    return unsubscribe;
+  }, [navigation]);
 
   const reloadSensores = async () => {
     const sensor = await funcaoReadSensors();

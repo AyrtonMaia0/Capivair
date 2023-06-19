@@ -5,33 +5,50 @@
   "poluicao_total": 5000,
 
   "emissao_total": {
-    "CO": {
-      "coluna1": 15,
-      "coluna2": 20,
-      "coluna3": 25,
-      "coluna4": 27,
-      "coluna5": 30,
-      "coluna6": 35,
-      "coluna7": 40
-    },
-    "O": {
-      "coluna1": 25,
-      "coluna2": 30,
-      "coluna3": 35,
-      "coluna4": 37,
-      "coluna5": 40,
-      "coluna6": 45,
-      "coluna7": 50
-    },
-    "NO": {
-      "coluna1": 35,
-      "coluna2": 40,
-      "coluna3": 45,
-      "coluna4": 47,
-      "coluna5": 50,
-      "coluna6": 55,
-      "coluna7": 58
-    }
+    "anual": [
+      {
+        "ano": 2017,
+        "CO₂": 5500,
+        "O": 1200,
+        "NO": 220
+      },
+      {
+        "ano": 2018,
+        "CO₂": 6000,
+        "O": 1300,
+        "NO": 240
+      },
+      {
+        "ano": 2019,
+        "CO₂": 6500,
+        "O": 1400,
+        "NO": 260
+      },
+      {
+        "ano": 2020,
+        "CO₂": 7000,
+        "O": 1500,
+        "NO": 280
+      },
+      {
+        "ano": 2021,
+        "CO₂": 7500,
+        "O": 1600,
+        "NO": 300
+      },
+      {
+        "ano": 2022,
+        "CO₂": 8000,
+        "O": 1700,
+        "NO": 320
+      },
+      {
+        "ano": 2023,
+        "CO₂": 8500,
+        "O": 1800,
+        "NO": 340
+      }
+    ]
   },
 
   "emissao_semanal": {
@@ -106,10 +123,10 @@
   },
 
   "poluentes": {
-    "monoxidoCarbono": 55,
-    "dioxidoCarbono": 49,
-    "dioxidoNitrogenio": 44,
-    "ozonio": 24
+    "Monóxido de Carbono": 55,
+    "Dióxido de Carbono": 49,
+    "Dióxido de Nitrogênio": 44,
+    "Ozônio": 24
   },
 
   "poluentes_correcao": [

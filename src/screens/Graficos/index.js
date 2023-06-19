@@ -3,17 +3,17 @@ import { Header } from "capivair/src/components/header";
 import styles from "capivair/style";
 
 import DailyEmission from "capivair/src/components/Charts/DailyEmission";
-import Poluentes from 'capivair/src/components/Charts/Pollution';
+import Pollution from "capivair/src/components/Charts/Pollution";
+import TotalEmission from "capivair/src/components/Charts/TotalEmission";
 // import Semanal from 'capivair/src/components/Charts/Models/Weekly';
 /* 
-import BarChart_ from "../../components/Charts/Models/_BarChart";
-import LineChart_ from "../../components/Charts/Models/_LineChart";
-import BezierLineChart_ from "../../components/Charts/Models/_BezierLineChart";
-import ProgressChart_ from '../../components/Charts/Models/_ProgressChart';
-import BarChart_ from '../../components/Charts/Models/_BarChart';
-import StackedBarChart_ from '../../components/Charts/Models/_StackedBarChart';
-import PieChart_ from '../../components/Charts/Models/_PieChart';
-import ContributionGraph_ from '../../components/Charts/Models/_ContributionGraph';
+import BarChart_ from "capivair/src/components/Charts/Models/_BarChart";
+import BezierLineChart_ from "capivair/src/components/Charts/Models/_BezierLineChart";
+import ProgressChart_ from 'capivair/src/components/Charts/Models/_ProgressChart';
+import LineChart_ from "capivair/src/components/Charts/Models/_LineChart";
+import StackedBarChart_ from 'capivair/src/components/Charts/Models/_StackedBarChart';
+import PieChart_ from 'capivair/src/components/Charts/Models/_PieChart';
+import ContributionGraph_ from 'capivair/src/components/Charts/Models/_ContributionGraph';
  */
 
 export default function Graficos() {
@@ -22,13 +22,14 @@ export default function Graficos() {
       <Header />
       <View style={styles.screen_dashboard}>
         <Text style={styles.tituloL}>Gráficos</Text>
+        <TotalEmission />
         <DailyEmission />
-        <Poluentes/>
+        <Pollution />
         {/* <Semanal/>  */}
         {/* 
-        <LineChart_ />
+        <BarChart_ />
         <BezierLineChart_ />
-        <BarChart_ /> 
+        <LineChart_ />
         */}
       </View>
     </ScrollView>

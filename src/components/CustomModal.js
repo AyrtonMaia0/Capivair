@@ -12,8 +12,6 @@ import {
 } from "react-native";
 
 export default function CustomModal({ isOpen, sensor, onModalClose }) {
-  // isOpen ? console.log("tudo") : console.log("nada");
-
   const [visivel, setVisivel] = useState(false);
   useEffect(() => {
     setVisivel(isOpen);

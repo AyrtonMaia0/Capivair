@@ -11,7 +11,6 @@ import styles from "capivair/style";
 dados_mockados = require("capivair/services/dados.json");
 emissao_total = dados_mockados.emissao_total.anual;
 emissao_total = emissao_total.map((item) => {
-  console.log(item.ano);
   return item.ano;
 });
 

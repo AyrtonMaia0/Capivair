@@ -22,7 +22,7 @@ export default function Home({ navigation }) {
   }, [visibleModal]); // Atualizar os sensores quando o modal for aberto ou fechado
 
   useEffect(() => {
-    const unsubscribe = navigation.addListener('focus', () => {
+    const unsubscribe = navigation.addListener("focus", () => {
       getData();
     });
 
@@ -34,12 +34,20 @@ export default function Home({ navigation }) {
     setSensores(sensor);
   };
 
+  useEffect(() => {
+    reloadSensores();
+  });
+
   const renderSensor = ({ item: sensor }) => {
     return (
       <>
         <ListItem
           bottomDivider
           key={sensor.id}
+          onLongPress={() => {
+            setSensorModal(sensor);
+            setVisibleModal(!visibleModal);
+          }}
           onPress={() => {
             setSensorModal(sensor);
             setVisibleModal(!visibleModal);
@@ -48,11 +56,13 @@ export default function Home({ navigation }) {
           <Icon
             color="#0D6EFD"
             name="location-pin"
-            onLongPress={() => console.log("onLongPress()")}
+            onLongPress={() => {
+              setSensorModal(sensor);
+              setVisibleModal(!visibleModal);
+            }}
             onPress={() => {
               setSensorModal(sensor);
               setVisibleModal(!visibleModal);
-              // console.warn("AA");
             }}
             size={40}
             type="material"

@@ -12,6 +12,7 @@ import {
   ScrollView,
   KeyboardAvoidingView,
   Platform,
+  Alert,
 } from "react-native";
 
 export default function Monitoramento() {
@@ -48,19 +49,26 @@ export default function Monitoramento() {
   };
 
   function enviar(x, y) {
-    const dados = {
-      nome: sensorNome,
-      id: sensorId,
-      x: x,
-      y: y,
-      status: sensorStatus,
-      tipo: sensorTipo,
-      area: sensorArea,
-    };
-    const url = "https://back-people.onrender.com/sensor";
-    const response = axios.post(url, dados);
-    console.log(response);
-    console.log(dados);
+    if (sensorNome == "" || sensorId == "" || sensorStatus == "") {
+      Alert.alert("Atenção", "É obrigatório o preenchimento dos campos Nome, Código e Status dos sensores!");
+
+      // alert("Atenção!", "");
+      return;
+    } else {
+      const dados = {
+        nome: sensorNome,
+        id: sensorId,
+        x: x,
+        y: y,
+        status: sensorStatus,
+        tipo: sensorTipo,
+        area: sensorArea,
+      };
+      const url = "https://back-people.onrender.com/sensor";
+      const response = axios.post(url, dados);
+      console.log(response);
+      console.log(dados);
+    }
   }
 
   return (
@@ -72,15 +80,13 @@ export default function Monitoramento() {
           textAlign: "center",
           color: "#00256E",
           fontWeight: "700",
-        }}
-      >
+        }}>
         Cadastrar
       </Text>
 
       <ScrollView
         contentContainerStyle={styles.container}
-        keyboardShouldPersistTaps="handled"
-      >
+        keyboardShouldPersistTaps="handled">
         {/* Input Nome */}
         <TextInput
           placeholder="Nome"

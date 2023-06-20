@@ -3,6 +3,7 @@ import api from "../../services/api";
 
 
 
+// Create está em monitoramento
 //----CREATE
 /* 
 export async function funcaoCreateSensors(){

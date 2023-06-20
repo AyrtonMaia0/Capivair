@@ -50,9 +50,10 @@ export default function Monitoramento() {
 
   function enviar(x, y) {
     if (sensorNome == "" || sensorId == "" || sensorStatus == "") {
-      Alert.alert("Atenção", "É obrigatório o preenchimento dos campos Nome, Código e Status dos sensores!");
-
-      // alert("Atenção!", "");
+      Alert.alert(
+        "Atenção",
+        "É obrigatório o preenchimento dos campos Nome, Código e Status dos sensores!"
+      );
       return;
     } else {
       const dados = {
@@ -68,6 +69,7 @@ export default function Monitoramento() {
       const response = axios.post(url, dados);
       console.log(response);
       console.log(dados);
+      Alert.alert("Sucesso", `Sensor ${sensorId} cadastrado com sucesso!`);
     }
   }
 

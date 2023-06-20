@@ -92,7 +92,7 @@ export default function Home({ navigation }) {
       <Header />
       <FlatList
         data={sensores}
-        keyExtractor={(i) => `${i.id}`}
+        keyExtractor={(i) => `${i._id}`}
         renderItem={renderSensor}
       />
       <CustomModal

@@ -13,45 +13,44 @@
 
 ## Screenshots
 
-*tela home*
-
 <div style="display: flex;">
   <table style="border-collapse: collapse; border-style: none;">
     <tr style="border: none;">
-      <td align="center" style="border: none;">
+       <td align="center" style="border: none;">
+        <p><b>Carregamento</b></p>
+      </td>
+       <td align="center" style="border: none;">
         <p><b>Home</b></p>
-        <img src="https://github.com/AyrtonMaia0/Capivair/assets/98968093/f65e317f-2319-4779-a196-7aae0d3fd6bc" width="300px;" alt="adicionemDescricao"/>
       </td>
-      <td align="center" style="border: none;">
+       <td align="center" style="border: none;">
+        <p><b>SideBar</b></p>
+      </td>
+       <td align="center" style="border: none;">
         <p><b>Monitoramento</b></p>
-        <img src="https://github.com/AyrtonMaia0/Capivair/assets/98968093/2556744d-0e9c-4add-8e79-d85c6a9cc8de" width="300px;" alt="adicionemDescricao"/>
+      </td>
+       <td align="center" style="border: none;">
+        <p><b>Chart</b></p>
+      </td>
+    </tr>
+    <tr style="border: none;">
+      <td align="center" style="border: none;">
+        <img src="./assets/0_Carregamento.png" height="487.5px;" alt="Tela de carregamento com o logo de uma capivaara azul"/>
       </td>
       <td align="center" style="border: none;">
-        <p><b>Chart</b></p>
-        <img src="https://github.com/AyrtonMaia0/Capivair/assets/98968093/1377ca43-62f5-4735-bc26-d65c965f2f8d" width="300px;" alt="adicionemDescricao"/>
+        <img src="./assets/1_Home.png" height="487.5px;" alt="Tela inicial com uma lista de sensores, seus ódigos identificadose tipos "/>
+      </td>
+      <td align="center" style="border: none;">
+        <img src="./assets/1.1_BarraLateral.png" height="487.5px;" alt="Tela com o sidebar exibindo as opções Home, Monitoramento e Gráficos, que são telas para navegação, bem com foto de uma capivara de terno e os dizeres David Loo, Administrador"/>
+      </td>
+      <td align="center" style="border: none;">
+        <img src="./assets/2_Monitoramento.png" height="487.5px;" alt="Tela de monitoramento, com os dizeres Cadastrar, um formulário com dados básicos de um sensor"/>
+      </td>
+      <td align="center" style="border: none;">
+        <img src="./assets/3_Gráficos.png" height="487.5px;" alt="Tela com os dizeres Gráficos, Emissão Semanal e um gráficode linhas com três sensores diferentes, bem como com um gráfico de pizza sobre os poluentes emitidos"/>
       </td>
     </tr>
   </table>
 </div>
-
-
-  
-  <!--<div>![20230620_004848](https://github.com/AyrtonMaia0/Capivair/assets/96891482/11b5870a-ca46-4874-8d77-d901ff0cd7bb)</div>-->
-  <!--<div>![20230620_004937](https://github.com/AyrtonMaia0/Capivair/assets/96891482/a05f5261-7f7f-4230-9289-2a0c5ad64ea5)</div>-->
-  
-  <!--Graficos ![20230620_004949](https://github.com/AyrtonMaia0/Capivair/assets/98968093/1377ca43-62f5-4735-bc26-d65c965f2f8d)-->
-  <!--Monitoramento ![20230620_004937](https://github.com/AyrtonMaia0/Capivair/assets/98968093/2556744d-0e9c-4add-8e79-d85c6a9cc8de)-->
-  <!--Home ![20230620_004848](https://github.com/AyrtonMaia0/Capivair/assets/98968093/f65e317f-2319-4779-a196-7aae0d3fd6bc)-->
-
-
-
-
-
-
-
-*tela monitoramento*
-
-*tela gráficos*
 
 
 ## 🚀 Como executar
@@ -88,8 +87,15 @@
 
 ## Tecnologias Utilizadas
 - React Native
+  - React NAtive Elements
+  - React Native Chart-Kit
+  - React Navigation
+  - Hook
 - JavaScript
 - Expo Go
+- VS Code
+- Discord
+- Notion
 
 <br>
 <h2 >Colaboradores</h2>

@@ -6,7 +6,9 @@
 <h1 align="center">
   Capivair
 </h1>
-<p>Descrição aqui</p>
+<p>Este projeto consiste em um aplicativo para gerenciamento da emissão de poluentes, que visa solucionar problemas relacionados ao controle, conformidade e responsabilidade socioambiental. 
+O objetivo é evitar multas ambientais, promover a reputação do cliente e facilitar a integração com formulários burocráticos de órgãos fiscalizadores. Além disso, o aplicativo permite alguma automação e a aplicação de inferências em dados para auxiliar na tomada de decisões. 
+As principais áreas abrangidas são a visualização das taxas de poluentes por meio de dashboards, o cadastro de sensores em uma planta baixa da indústria para identificar os pontos de coleta das emissões, e o envio de notificações de alerta caso as taxas de emissão ultrapassem os limites permitidos.</p>
 
 <br>
 
@@ -16,9 +18,6 @@
 <div style="display: flex;">
   <table style="border-collapse: collapse; border-style: none;">
     <tr style="border: none;">
-       <td align="center" style="border: none;">
-        <p><b>Carregamento</b></p>
-      </td>
        <td align="center" style="border: none;">
         <p><b>Home</b></p>
       </td>
@@ -33,9 +32,6 @@
       </td>
     </tr>
     <tr style="border: none;">
-      <td align="center" style="border: none;">
-        <img src="./assets/0_Carregamento.png" height="487.5px;" alt="Tela de carregamento com o logo de uma capivaara azul"/>
-      </td>
       <td align="center" style="border: none;">
         <img src="./assets/1_Home.png" height="487.5px;" alt="Tela inicial com uma lista de sensores, seus ódigos identificadose tipos "/>
       </td>

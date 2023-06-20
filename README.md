@@ -33,16 +33,16 @@ As principais áreas abrangidas são a visualização das taxas de poluentes por
     </tr>
     <tr style="border: none;">
       <td align="center" style="border: none;">
-        <img src="./assets/1_Home.png" height="487.5px;" alt="Tela inicial com uma lista de sensores, seus ódigos identificadose tipos "/>
+        <img src="./assets/1_Home.png" width="217.5" height="487.5px;" alt="Tela inicial com uma lista de sensores, seus ódigos identificadose tipos "/>
       </td>
       <td align="center" style="border: none;">
-        <img src="./assets/1.1_BarraLateral.png" height="487.5px;" alt="Tela com o sidebar exibindo as opções Home, Monitoramento e Gráficos, que são telas para navegação, bem com foto de uma capivara de terno e os dizeres David Loo, Administrador"/>
+        <img src="./assets/1.1_BarraLateral.png" width="217.5" height="487.5px;" alt="Tela com o sidebar exibindo as opções Home, Monitoramento e Gráficos, que são telas para navegação, bem com foto de uma capivara de terno e os dizeres David Loo, Administrador"/>
       </td>
       <td align="center" style="border: none;">
-        <img src="./assets/2_Monitoramento.png" height="487.5px;" alt="Tela de monitoramento, com os dizeres Cadastrar, um formulário com dados básicos de um sensor"/>
+        <img src="./assets/2_Monitoramento.png" width="217.5" height="487.5px;" alt="Tela de monitoramento, com os dizeres Cadastrar, um formulário com dados básicos de um sensor"/>
       </td>
       <td align="center" style="border: none;">
-        <img src="./assets/3_Gráficos.png" height="487.5px;" alt="Tela com os dizeres Gráficos, Emissão Semanal e um gráficode linhas com três sensores diferentes, bem como com um gráfico de pizza sobre os poluentes emitidos"/>
+        <img src="./assets/3_Gráficos.png" width="217.5" height="487.5px;" alt="Tela com os dizeres Gráficos, Emissão Semanal e um gráficode linhas com três sensores diferentes, bem como com um gráfico de pizza sobre os poluentes emitidos"/>
       </td>
     </tr>
   </table>

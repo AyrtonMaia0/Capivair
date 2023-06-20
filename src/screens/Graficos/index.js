@@ -5,7 +5,7 @@ import styles from "capivair/style";
 import DailyEmission from "capivair/src/components/Charts/DailyEmission";
 import Pollution from "capivair/src/components/Charts/Pollution";
 import TotalEmission from "capivair/src/components/Charts/TotalEmission";
-// import Semanal from 'capivair/src/components/Charts/Models/Weekly';
+import Weekly from 'capivair/src/components/Charts/Weekly';
 /* 
 import BarChart_ from "capivair/src/components/Charts/Models/_BarChart";
 import BezierLineChart_ from "capivair/src/components/Charts/Models/_BezierLineChart";
@@ -25,7 +25,7 @@ export default function Graficos() {
         <TotalEmission />
         <DailyEmission />
         <Pollution />
-        {/* <Semanal/>  */}
+        <Weekly/>
         {/* 
         <BarChart_ />
         <BezierLineChart_ />

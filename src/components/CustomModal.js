@@ -239,6 +239,7 @@ export default function CustomModal({ isOpen, sensor, onModalClose }) {
                           text: "OK",
                           onPress: () => {
                             funcaoDeleteSensors(varSensor);
+                            closeModal;
                             closeModal();
                           },
                         },

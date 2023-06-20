@@ -25,7 +25,7 @@ export default function Graficos() {
         <TotalEmission />
         <DailyEmission />
         <Pollution />
-        <Weekly/>
+        {/* <Weekly/> */}
         {/* 
         <BarChart_ />
         <BezierLineChart_ />

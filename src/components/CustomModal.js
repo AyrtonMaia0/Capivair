@@ -255,7 +255,10 @@ export default function CustomModal({ isOpen, sensor, onModalClose }) {
                 {/* Button UPDATE */}
                 <TouchableOpacity
                   style={styles.botaoSal}
-                  onPress={() => funcaoUpdateSensors(varSensor)}>
+                  onPress={() => {
+                    funcaoUpdateSensors(varSensor);
+                    alert(`Sensor ${varSensor.id} atualizado com sucesso!`);
+                  }}>
                   <Text style={{ textAlign: "center", color: "white" }}>
                     SALVAR
                   </Text>

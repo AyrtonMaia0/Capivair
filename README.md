@@ -16,17 +16,26 @@
 *tela home*
 
 <div style="display: flex;">
-  <tr>
-    <td align="center"><img src="https://github.com/AyrtonMaia0/Capivair/assets/96891482/11b5870a-ca46-4874-8d77-d901ff0cd7bb" width="300px;" alt="adicionemDescricao"/></td>
-    <td align="center"><img src="https://github.com/AyrtonMaia0/Capivair/assets/96891482/a05f5261-7f7f-4230-9289-2a0c5ad64ea5" width="300px;" alt="adicionemDescricao"/></td>
-  </tr>
+  <table>
+    <tr>
+      <td align="center"><p><b>Home</b></p><img src="https://github.com/AyrtonMaia0/Capivair/assets/98968093/f65e317f-2319-4779-a196-7aae0d3fd6bc" width="300px;" alt="adicionemDescricao"/></td>
+      <td align="center"><p><b>Monitoramento</b></p><img src="https://github.com/AyrtonMaia0/Capivair/assets/98968093/2556744d-0e9c-4add-8e79-d85c6a9cc8de" width="300px;" alt="adicionemDescricao"/></td>
+      <td align="center"><p><b>Chart</b></p><img src="https://github.com/AyrtonMaia0/Capivair/assets/98968093/1377ca43-62f5-4735-bc26-d65c965f2f8d" width="300px;" alt="adicionemDescricao"/></td>
+    </tr>
+
+  </table>
+</div>
 
   
-  <div>![20230620_004848](https://github.com/AyrtonMaia0/Capivair/assets/96891482/11b5870a-ca46-4874-8d77-d901ff0cd7bb)</div>
+  <!--<div>![20230620_004848](https://github.com/AyrtonMaia0/Capivair/assets/96891482/11b5870a-ca46-4874-8d77-d901ff0cd7bb)</div>-->
+  <!--<div>![20230620_004937](https://github.com/AyrtonMaia0/Capivair/assets/96891482/a05f5261-7f7f-4230-9289-2a0c5ad64ea5)</div>-->
+  
+  <!--Graficos ![20230620_004949](https://github.com/AyrtonMaia0/Capivair/assets/98968093/1377ca43-62f5-4735-bc26-d65c965f2f8d)-->
+  <!--Monitoramento ![20230620_004937](https://github.com/AyrtonMaia0/Capivair/assets/98968093/2556744d-0e9c-4add-8e79-d85c6a9cc8de)-->
+  <!--Home ![20230620_004848](https://github.com/AyrtonMaia0/Capivair/assets/98968093/f65e317f-2319-4779-a196-7aae0d3fd6bc)-->
 
-  <div>![20230620_004937](https://github.com/AyrtonMaia0/Capivair/assets/96891482/a05f5261-7f7f-4230-9289-2a0c5ad64ea5)</div>
 
-</div>
+
 
 
 

@@ -16,11 +16,15 @@
 *tela home*
 
 <div style="display: flex;">
-  
-  
-<div>![20230620_004848](https://github.com/AyrtonMaia0/Capivair/assets/96891482/11b5870a-ca46-4874-8d77-d901ff0cd7bb)</div>
+  <tr>
+    <td align="center"><img src="https://github.com/AyrtonMaia0/Capivair/assets/96891482/11b5870a-ca46-4874-8d77-d901ff0cd7bb" width="300px;" alt="adicionemDescricao"/></td>
+    <td align="center"><img src="https://github.com/AyrtonMaia0/Capivair/assets/96891482/a05f5261-7f7f-4230-9289-2a0c5ad64ea5" width="300px;" alt="adicionemDescricao"/></td>
+  </tr>
 
-<div>![20230620_004937](https://github.com/AyrtonMaia0/Capivair/assets/96891482/a05f5261-7f7f-4230-9289-2a0c5ad64ea5)</div>
+  
+  <div>![20230620_004848](https://github.com/AyrtonMaia0/Capivair/assets/96891482/11b5870a-ca46-4874-8d77-d901ff0cd7bb)</div>
+
+  <div>![20230620_004937](https://github.com/AyrtonMaia0/Capivair/assets/96891482/a05f5261-7f7f-4230-9289-2a0c5ad64ea5)</div>
 
 </div>
 

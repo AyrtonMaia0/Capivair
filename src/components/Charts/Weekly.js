@@ -34,13 +34,20 @@ export default (props) => {
     labels: ["1", "2", "3", "4", "5", "6"],
     datasets: [
       {
-        data: dataY,
-        color: (opacity = 1) => `rgba(134, 65, 244, ${opacity})`, // optional
+        /* data: dataY, */
+        data: [312.0, 340.7, 300.5, 350.0, 360.3, 343.9, 360.3],
+        color: () => `#55BEF8`, // optional
         strokeWidth: 2, // optional
       },
       {
-        data: dataY,
-        color: (opacity = 1) => `rgba(134, 65, 244, ${opacity})`, // optional
+        data: [323.0, 330.7, 320.5, 320.0, 310.3, 313.9, 305.3],
+        color: () => `#176EBB`, // optional
+        strokeWidth: 2, // optional
+      },
+      
+      {
+        data: [315.0, 317.6, 320.2, 315.9, 313.5, 314.9, 323.4],
+        color: () => `#004685`, // optional
         strokeWidth: 2, // optional
       }
     ],

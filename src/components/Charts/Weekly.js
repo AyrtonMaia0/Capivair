@@ -38,8 +38,13 @@ export default (props) => {
         color: (opacity = 1) => `rgba(134, 65, 244, ${opacity})`, // optional
         strokeWidth: 2, // optional
       },
+      {
+        data: dataY,
+        color: (opacity = 1) => `rgba(134, 65, 244, ${opacity})`, // optional
+        strokeWidth: 2, // optional
+      }
     ],
-    legend: ["Emissão semanal"], // optional
+    legend: ["CAMCOMB01", "CAMCOMB02", "CAMCOMB03"], // optional
   };
 
   return (
